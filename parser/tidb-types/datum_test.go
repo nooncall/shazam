@@ -20,9 +20,9 @@ import (
 
 	. "github.com/pingcap/check"
 
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/parser/stmtctx"
-	"github.com/XiaoMi/Gaea/parser/tidb-types/json"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/parser/stmtctx"
+	"github.com/nooncall/shazam/parser/tidb-types/json"
 )
 
 var _ = Suite(&testDatumSuite{})

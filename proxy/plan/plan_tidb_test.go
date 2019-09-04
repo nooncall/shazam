@@ -18,9 +18,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/XiaoMi/Gaea/parser"
-	"github.com/XiaoMi/Gaea/parser/ast"
-	"github.com/XiaoMi/Gaea/parser/format"
+	"github.com/nooncall/shazam/parser"
+	"github.com/nooncall/shazam/parser/ast"
+	"github.com/nooncall/shazam/parser/format"
 )
 
 func BenchmarkSelectStmtCheckShard(b *testing.B) {

@@ -22,7 +22,7 @@ import (
 
 	"github.com/pingcap/errors"
 
-	"github.com/XiaoMi/Gaea/parser/terror"
+	"github.com/nooncall/shazam/parser/terror"
 )
 
 // ActionType is the type for DDL action.

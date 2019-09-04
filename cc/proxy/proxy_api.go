@@ -17,7 +17,7 @@ package proxy
 import (
 	"encoding/json"
 
-	"github.com/XiaoMi/Gaea/util/requests"
+	"github.com/nooncall/shazam/util/requests"
 )
 
 // APIClient api client

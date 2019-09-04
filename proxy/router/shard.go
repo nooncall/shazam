@@ -40,8 +40,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/XiaoMi/Gaea/core/errors"
-	"github.com/XiaoMi/Gaea/util/hack"
+	"github.com/nooncall/shazam/core/errors"
+	"github.com/nooncall/shazam/util/hack"
 )
 
 /*由分片ID找到分片，可用文件中的函数*/

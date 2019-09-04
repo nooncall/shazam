@@ -22,7 +22,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/XiaoMi/Gaea/log"
+	"github.com/nooncall/shazam/log"
 )
 
 // counters is similar to expvar.Map, except that it doesn't allow floats.

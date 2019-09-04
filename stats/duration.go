@@ -20,7 +20,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/XiaoMi/Gaea/util/sync2"
+	"github.com/nooncall/shazam/util/sync2"
 )
 
 // CounterDuration exports a time.Duration as counter.

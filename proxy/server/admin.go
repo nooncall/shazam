@@ -24,9 +24,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/XiaoMi/Gaea/log"
-	"github.com/XiaoMi/Gaea/models"
-	"github.com/XiaoMi/Gaea/util"
+	"github.com/nooncall/shazam/log"
+	"github.com/nooncall/shazam/models"
+	"github.com/nooncall/shazam/util"
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
 )

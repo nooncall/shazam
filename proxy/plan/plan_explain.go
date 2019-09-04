@@ -18,13 +18,13 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/XiaoMi/Gaea/backend"
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/parser/ast"
-	"github.com/XiaoMi/Gaea/parser/format"
-	"github.com/XiaoMi/Gaea/proxy/router"
-	"github.com/XiaoMi/Gaea/proxy/sequence"
-	"github.com/XiaoMi/Gaea/util"
+	"github.com/nooncall/shazam/backend"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/parser/ast"
+	"github.com/nooncall/shazam/parser/format"
+	"github.com/nooncall/shazam/proxy/router"
+	"github.com/nooncall/shazam/proxy/sequence"
+	"github.com/nooncall/shazam/util"
 )
 
 // constants of ShardType

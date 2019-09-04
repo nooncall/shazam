@@ -22,15 +22,15 @@ import (
 	"strings"
 	"time"
 
-	"github.com/XiaoMi/Gaea/backend"
-	"github.com/XiaoMi/Gaea/log"
-	"github.com/XiaoMi/Gaea/models"
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/proxy/plan"
-	"github.com/XiaoMi/Gaea/proxy/router"
-	"github.com/XiaoMi/Gaea/proxy/sequence"
-	"github.com/XiaoMi/Gaea/util"
-	"github.com/XiaoMi/Gaea/util/cache"
+	"github.com/nooncall/shazam/backend"
+	"github.com/nooncall/shazam/log"
+	"github.com/nooncall/shazam/models"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/proxy/plan"
+	"github.com/nooncall/shazam/proxy/router"
+	"github.com/nooncall/shazam/proxy/sequence"
+	"github.com/nooncall/shazam/util"
+	"github.com/nooncall/shazam/util/cache"
 )
 
 const (

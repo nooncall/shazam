@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/XiaoMi/Gaea/util/hack"
+	"github.com/nooncall/shazam/util/hack"
 )
 
 const (

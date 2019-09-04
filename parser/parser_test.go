@@ -22,13 +22,13 @@ import (
 	. "github.com/pingcap/check"
 	"github.com/pingcap/errors"
 
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/parser/ast"
-	. "github.com/XiaoMi/Gaea/parser/format"
-	"github.com/XiaoMi/Gaea/parser/model"
-	"github.com/XiaoMi/Gaea/parser/terror"
-	types "github.com/XiaoMi/Gaea/parser/tidb-types"
-	driver "github.com/XiaoMi/Gaea/parser/tidb-types/parser_driver"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/parser/ast"
+	. "github.com/nooncall/shazam/parser/format"
+	"github.com/nooncall/shazam/parser/model"
+	"github.com/nooncall/shazam/parser/terror"
+	types "github.com/nooncall/shazam/parser/tidb-types"
+	driver "github.com/nooncall/shazam/parser/tidb-types/parser_driver"
 )
 
 func TestT(t *testing.T) {
@@ -2929,7 +2929,7 @@ func (wfc *windowFrameBoundChecker) Leave(inNode ast.Node) (node ast.Node, ok bo
 }
 
 // For issue #51
-// See https://github.com/XiaoMi/Gaea/parser/pull/51 for details
+// See https://github.com/nooncall/shazam/parser/pull/51 for details
 func (s *testParserSuite) TestVisitFrameBound(c *C) {
 	parser := New()
 	parser.EnableWindowFunc(true)
@@ -2974,7 +2974,7 @@ func (s *testParserSuite) TestFieldText(c *C) {
 	}
 }
 
-// See https://github.com/XiaoMi/Gaea/parser/issue/94
+// See https://github.com/nooncall/shazam/parser/issue/94
 func (s *testParserSuite) TestQuotedSystemVariables(c *C) {
 	parser := New()
 
@@ -3035,7 +3035,7 @@ func (s *testParserSuite) TestQuotedSystemVariables(c *C) {
 	}
 }
 
-// See https://github.com/XiaoMi/Gaea/parser/issue/95
+// See https://github.com/nooncall/shazam/parser/issue/95
 func (s *testParserSuite) TestQuotedVariableColumnName(c *C) {
 	parser := New()
 

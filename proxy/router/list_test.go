@@ -31,7 +31,7 @@ package router
 import (
 	"testing"
 
-	"github.com/XiaoMi/Gaea/core/errors"
+	"github.com/nooncall/shazam/core/errors"
 )
 
 func testCheckList(t *testing.T, l []int, checkList ...int) {

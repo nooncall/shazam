@@ -27,8 +27,8 @@ import (
 
 	"github.com/pingcap/errors"
 
-	"github.com/XiaoMi/Gaea/parser/terror"
-	"github.com/XiaoMi/Gaea/util/hack"
+	"github.com/nooncall/shazam/parser/terror"
+	"github.com/nooncall/shazam/util/hack"
 )
 
 /*

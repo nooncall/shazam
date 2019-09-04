@@ -22,14 +22,14 @@ import (
 	"strings"
 	"time"
 
-	"github.com/XiaoMi/Gaea/backend"
-	"github.com/XiaoMi/Gaea/core/errors"
-	"github.com/XiaoMi/Gaea/log"
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/parser"
-	"github.com/XiaoMi/Gaea/parser/ast"
-	"github.com/XiaoMi/Gaea/proxy/plan"
-	"github.com/XiaoMi/Gaea/util"
+	"github.com/nooncall/shazam/backend"
+	"github.com/nooncall/shazam/core/errors"
+	"github.com/nooncall/shazam/log"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/parser"
+	"github.com/nooncall/shazam/parser/ast"
+	"github.com/nooncall/shazam/proxy/plan"
+	"github.com/nooncall/shazam/util"
 )
 
 // Parse parse sql

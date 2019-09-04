@@ -17,9 +17,9 @@ package plan
 import (
 	"fmt"
 
-	"github.com/XiaoMi/Gaea/parser/ast"
-	"github.com/XiaoMi/Gaea/parser/format"
-	"github.com/XiaoMi/Gaea/proxy/router"
+	"github.com/nooncall/shazam/parser/ast"
+	"github.com/nooncall/shazam/parser/format"
+	"github.com/nooncall/shazam/proxy/router"
 )
 
 // ColumnNameExprDecorator decorate ColumnNameExpr to rewrite table name

@@ -36,7 +36,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/XiaoMi/Gaea/util/hack"
+	"github.com/nooncall/shazam/util/hack"
 )
 
 // FieldData means filed data, is []byte

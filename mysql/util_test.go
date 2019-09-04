@@ -32,7 +32,7 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/XiaoMi/Gaea/util/hack"
+	"github.com/nooncall/shazam/util/hack"
 )
 
 func TestCalcPassword(t *testing.T) {

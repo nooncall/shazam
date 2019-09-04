@@ -21,8 +21,8 @@ import (
 
 	"github.com/pingcap/errors"
 
-	"github.com/XiaoMi/Gaea/parser/format"
-	"github.com/XiaoMi/Gaea/parser/terror"
+	"github.com/nooncall/shazam/parser/format"
+	"github.com/nooncall/shazam/parser/terror"
 )
 
 // UserIdentity represents username and hostname.

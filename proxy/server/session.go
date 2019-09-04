@@ -22,9 +22,9 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/XiaoMi/Gaea/log"
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/util"
+	"github.com/nooncall/shazam/log"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/util"
 )
 
 // DefaultCapability means default capability

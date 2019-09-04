@@ -6,8 +6,8 @@ import (
 
 	. "github.com/pingcap/check"
 
-	"github.com/XiaoMi/Gaea/parser"
-	"github.com/XiaoMi/Gaea/parser/ast"
+	"github.com/nooncall/shazam/parser"
+	"github.com/nooncall/shazam/parser/ast"
 )
 
 var _ = Suite(&testAstFormatSuite{})

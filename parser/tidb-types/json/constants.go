@@ -17,8 +17,8 @@ import (
 	"encoding/binary"
 	"unicode/utf8"
 
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/parser/terror"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/parser/terror"
 )
 
 // TypeCode indicates JSON type.

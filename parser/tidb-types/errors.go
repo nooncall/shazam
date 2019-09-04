@@ -14,9 +14,9 @@
 package types
 
 import (
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/parser/terror"
-	parser_types "github.com/XiaoMi/Gaea/parser/types"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/parser/terror"
+	parser_types "github.com/nooncall/shazam/parser/types"
 )
 
 var (

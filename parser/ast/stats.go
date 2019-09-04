@@ -16,8 +16,8 @@ package ast
 import (
 	"github.com/pingcap/errors"
 
-	"github.com/XiaoMi/Gaea/parser/format"
-	"github.com/XiaoMi/Gaea/parser/model"
+	"github.com/nooncall/shazam/parser/format"
+	"github.com/nooncall/shazam/parser/model"
 )
 
 var (

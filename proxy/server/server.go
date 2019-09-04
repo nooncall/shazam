@@ -22,11 +22,11 @@ import (
 
 	"fmt"
 
-	"github.com/XiaoMi/Gaea/log"
-	"github.com/XiaoMi/Gaea/models"
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/util"
-	"github.com/XiaoMi/Gaea/util/sync2"
+	"github.com/nooncall/shazam/log"
+	"github.com/nooncall/shazam/models"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/util"
+	"github.com/nooncall/shazam/util/sync2"
 )
 
 var (

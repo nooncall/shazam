@@ -18,7 +18,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/XiaoMi/Gaea/core/errors"
+	"github.com/nooncall/shazam/core/errors"
 )
 
 // calculate gcd ?

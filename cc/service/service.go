@@ -18,9 +18,9 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/XiaoMi/Gaea/cc/proxy"
-	"github.com/XiaoMi/Gaea/log"
-	"github.com/XiaoMi/Gaea/models"
+	"github.com/nooncall/shazam/cc/proxy"
+	"github.com/nooncall/shazam/log"
+	"github.com/nooncall/shazam/models"
 )
 
 // ListNamespace return names of all namespace

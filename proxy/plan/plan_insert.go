@@ -17,14 +17,14 @@ package plan
 import (
 	"fmt"
 
-	"github.com/XiaoMi/Gaea/core/errors"
-	"github.com/XiaoMi/Gaea/log"
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/parser/ast"
-	driver "github.com/XiaoMi/Gaea/parser/tidb-types/parser_driver"
-	"github.com/XiaoMi/Gaea/proxy/router"
-	"github.com/XiaoMi/Gaea/proxy/sequence"
-	"github.com/XiaoMi/Gaea/util"
+	"github.com/nooncall/shazam/core/errors"
+	"github.com/nooncall/shazam/log"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/parser/ast"
+	driver "github.com/nooncall/shazam/parser/tidb-types/parser_driver"
+	"github.com/nooncall/shazam/proxy/router"
+	"github.com/nooncall/shazam/proxy/sequence"
+	"github.com/nooncall/shazam/util"
 )
 
 // InsertPlan is the plan for insert statement

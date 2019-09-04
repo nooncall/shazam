@@ -25,7 +25,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/XiaoMi/Gaea/log"
+	"github.com/nooncall/shazam/log"
 )
 
 // Supported http methods

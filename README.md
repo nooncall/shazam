@@ -1,6 +1,6 @@
-[![LICENSE](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://github.com/XiaoMi/Gaea/blob/master/LICENSE)
+[![LICENSE](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://github.com/nooncall/shazam/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/XiaoMi/Gaea.svg?branch=master)](https://travis-ci.org/XiaoMi/Gaea)
-[![Go Report Card](https://goreportcard.com/badge/github.com/XiaoMi/Gaea)](https://goreportcard.com/report/github.com/XiaoMi/Gaea)
+[![Go Report Card](https://goreportcard.com/badge/github.com/nooncall/shazam)](https://goreportcard.com/report/github.com/nooncall/shazam)
 
 ## 简介
 

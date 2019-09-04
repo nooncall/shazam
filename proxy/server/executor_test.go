@@ -18,8 +18,8 @@ import (
 
 	"fmt"
 
-	"github.com/XiaoMi/Gaea/parser"
-	"github.com/XiaoMi/Gaea/parser/ast"
+	"github.com/nooncall/shazam/parser"
+	"github.com/nooncall/shazam/parser/ast"
 )
 
 func TestGetVariableExprResult(t *testing.T) {

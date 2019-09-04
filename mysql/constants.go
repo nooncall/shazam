@@ -19,7 +19,7 @@ import (
 
 	"github.com/pingcap/errors"
 
-	"github.com/XiaoMi/Gaea/parser/format"
+	"github.com/nooncall/shazam/parser/format"
 )
 
 const (

@@ -22,11 +22,11 @@ import (
 	"sync"
 	"syscall"
 
-	"github.com/XiaoMi/Gaea/core"
-	"github.com/XiaoMi/Gaea/log"
-	"github.com/XiaoMi/Gaea/log/xlog"
-	"github.com/XiaoMi/Gaea/models"
-	"github.com/XiaoMi/Gaea/proxy/server"
+	"github.com/nooncall/shazam/core"
+	"github.com/nooncall/shazam/log"
+	"github.com/nooncall/shazam/log/xlog"
+	"github.com/nooncall/shazam/models"
+	"github.com/nooncall/shazam/proxy/server"
 )
 
 var configFile = flag.String("config", "etc/gaea.ini", "gaea config file")

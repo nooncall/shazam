@@ -20,8 +20,8 @@ package types
 import (
 	"strings"
 
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/parser/terror"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/parser/terror"
 )
 
 // IsTypeBlob returns a boolean indicating whether the tp is a blob type.

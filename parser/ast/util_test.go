@@ -19,10 +19,10 @@ import (
 
 	. "github.com/pingcap/check"
 
-	"github.com/XiaoMi/Gaea/parser"
-	. "github.com/XiaoMi/Gaea/parser/ast"
-	. "github.com/XiaoMi/Gaea/parser/format"
-	driver "github.com/XiaoMi/Gaea/parser/tidb-types/parser_driver"
+	"github.com/nooncall/shazam/parser"
+	. "github.com/nooncall/shazam/parser/ast"
+	. "github.com/nooncall/shazam/parser/format"
+	driver "github.com/nooncall/shazam/parser/tidb-types/parser_driver"
 )
 
 var _ = Suite(&testCacheableSuite{})

@@ -16,9 +16,9 @@ package types
 import (
 	"strconv"
 
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/parser/tidb-types/json"
-	ast "github.com/XiaoMi/Gaea/parser/types"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/parser/tidb-types/json"
+	ast "github.com/nooncall/shazam/parser/types"
 )
 
 // UnspecifiedLength is unspecified length.

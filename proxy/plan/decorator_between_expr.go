@@ -17,11 +17,11 @@ package plan
 import (
 	"fmt"
 
-	"github.com/XiaoMi/Gaea/parser/ast"
-	"github.com/XiaoMi/Gaea/parser/format"
-	driver "github.com/XiaoMi/Gaea/parser/tidb-types/parser_driver"
-	"github.com/XiaoMi/Gaea/proxy/router"
-	"github.com/XiaoMi/Gaea/util"
+	"github.com/nooncall/shazam/parser/ast"
+	"github.com/nooncall/shazam/parser/format"
+	driver "github.com/nooncall/shazam/parser/tidb-types/parser_driver"
+	"github.com/nooncall/shazam/proxy/router"
+	"github.com/nooncall/shazam/util"
 )
 
 // BetweenExprDecorator decorate BetweenExpr

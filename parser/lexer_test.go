@@ -19,7 +19,7 @@ import (
 
 	. "github.com/pingcap/check"
 
-	"github.com/XiaoMi/Gaea/mysql"
+	"github.com/nooncall/shazam/mysql"
 )
 
 var _ = Suite(&testLexerSuite{})

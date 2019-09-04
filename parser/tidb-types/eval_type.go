@@ -13,7 +13,7 @@
 
 package types
 
-import ast "github.com/XiaoMi/Gaea/parser/types"
+import ast "github.com/nooncall/shazam/parser/types"
 
 // EvalType indicates the specified types that arguments and result of a built-in function should be.
 type EvalType = ast.EvalType

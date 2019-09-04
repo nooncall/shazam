@@ -17,9 +17,9 @@ package util
 import (
 	"strings"
 
-	"github.com/XiaoMi/Gaea/parser/format"
-	types "github.com/XiaoMi/Gaea/parser/tidb-types"
-	driver "github.com/XiaoMi/Gaea/parser/tidb-types/parser_driver"
+	"github.com/nooncall/shazam/parser/format"
+	types "github.com/nooncall/shazam/parser/tidb-types"
+	driver "github.com/nooncall/shazam/parser/tidb-types/parser_driver"
 )
 
 // GetValueExprResult copy from ValueExpr.Restore()

@@ -19,10 +19,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/parser/ast"
-	"github.com/XiaoMi/Gaea/util/hack"
-	"github.com/XiaoMi/Gaea/util/math"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/parser/ast"
+	"github.com/nooncall/shazam/util/hack"
+	"github.com/nooncall/shazam/util/math"
 )
 
 // ResultRow is one Row in Result

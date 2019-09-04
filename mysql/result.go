@@ -34,8 +34,8 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/XiaoMi/Gaea/core/errors"
-	"github.com/XiaoMi/Gaea/util/hack"
+	"github.com/nooncall/shazam/core/errors"
+	"github.com/nooncall/shazam/util/hack"
 )
 
 // RowData row in []byte format

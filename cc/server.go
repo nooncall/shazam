@@ -23,9 +23,9 @@ import (
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
 
-	"github.com/XiaoMi/Gaea/cc/service"
-	"github.com/XiaoMi/Gaea/log"
-	"github.com/XiaoMi/Gaea/models"
+	"github.com/nooncall/shazam/cc/service"
+	"github.com/nooncall/shazam/log"
+	"github.com/nooncall/shazam/models"
 )
 
 // Server admin server

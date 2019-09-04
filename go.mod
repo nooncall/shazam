@@ -1,4 +1,4 @@
-module github.com/XiaoMi/Gaea
+module github.com/nooncall/shazam
 
 go 1.12
 

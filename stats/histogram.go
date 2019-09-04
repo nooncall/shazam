@@ -20,7 +20,7 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/XiaoMi/Gaea/util/sync2"
+	"github.com/nooncall/shazam/util/sync2"
 )
 
 // Histogram tracks counts and totals while

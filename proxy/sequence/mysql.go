@@ -17,7 +17,7 @@ package sequence
 import (
 	"sync"
 
-	"github.com/XiaoMi/Gaea/backend"
+	"github.com/nooncall/shazam/backend"
 )
 
 // MySQLSequence struct of sequence number with specific sequence name

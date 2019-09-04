@@ -17,7 +17,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/XiaoMi/Gaea/models"
+	"github.com/nooncall/shazam/models"
 )
 
 type Router struct {

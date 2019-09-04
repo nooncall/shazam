@@ -38,7 +38,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/XiaoMi/Gaea/util/hack"
+	"github.com/nooncall/shazam/util/hack"
 )
 
 // This file contains the data encoding and decoding functions.

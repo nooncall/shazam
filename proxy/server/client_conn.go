@@ -17,8 +17,8 @@ package server
 import (
 	"fmt"
 
-	"github.com/XiaoMi/Gaea/log"
-	"github.com/XiaoMi/Gaea/mysql"
+	"github.com/nooncall/shazam/log"
+	"github.com/nooncall/shazam/mysql"
 )
 
 // ClientConn session client connection

@@ -32,12 +32,12 @@ import __yyfmt__ "fmt"
 import (
 	"strings"
 
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/parser/ast"
-	"github.com/XiaoMi/Gaea/parser/auth"
-	"github.com/XiaoMi/Gaea/parser/model"
-	"github.com/XiaoMi/Gaea/parser/opcode"
-	"github.com/XiaoMi/Gaea/parser/types"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/parser/ast"
+	"github.com/nooncall/shazam/parser/auth"
+	"github.com/nooncall/shazam/parser/model"
+	"github.com/nooncall/shazam/parser/opcode"
+	"github.com/nooncall/shazam/parser/types"
 )
 
 type yySymType struct {

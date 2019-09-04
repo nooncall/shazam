@@ -26,7 +26,7 @@ import (
 
 	"github.com/coreos/etcd/client"
 
-	"github.com/XiaoMi/Gaea/log"
+	"github.com/nooncall/shazam/log"
 )
 
 // ErrClosedEtcdClient means etcd client closed

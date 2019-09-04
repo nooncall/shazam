@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/XiaoMi/Gaea/mysql"
+	"github.com/nooncall/shazam/mysql"
 )
 
 func TestLimitSelectResult(t *testing.T) {

@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/XiaoMi/Gaea/models"
+	"github.com/nooncall/shazam/models"
 )
 
 func TestGetRealDatabases(t *testing.T) {

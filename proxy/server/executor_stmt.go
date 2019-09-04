@@ -35,8 +35,8 @@ import (
 	"math"
 	"strconv"
 
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/util"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/util"
 )
 
 var p = &mysql.Field{Name: []byte("?")}

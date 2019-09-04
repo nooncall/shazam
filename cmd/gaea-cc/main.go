@@ -22,12 +22,12 @@ import (
 	"sync"
 	"syscall"
 
-	"github.com/XiaoMi/Gaea/cc"
-	"github.com/XiaoMi/Gaea/core"
+	"github.com/nooncall/shazam/cc"
+	"github.com/nooncall/shazam/core"
 
-	"github.com/XiaoMi/Gaea/log"
-	"github.com/XiaoMi/Gaea/log/xlog"
-	"github.com/XiaoMi/Gaea/models"
+	"github.com/nooncall/shazam/log"
+	"github.com/nooncall/shazam/log/xlog"
+	"github.com/nooncall/shazam/models"
 )
 
 var ccConfigFile = flag.String("c", "./etc/gaea_cc.ini", "gaea cc配置")

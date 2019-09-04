@@ -16,8 +16,8 @@ package server
 import (
 	"testing"
 
-	"github.com/XiaoMi/Gaea/models"
-	"github.com/XiaoMi/Gaea/mysql"
+	"github.com/nooncall/shazam/models"
+	"github.com/nooncall/shazam/mysql"
 )
 
 type userinfo struct {

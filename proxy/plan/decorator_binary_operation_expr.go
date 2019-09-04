@@ -15,8 +15,8 @@
 package plan
 
 import (
-	"github.com/XiaoMi/Gaea/parser/ast"
-	driver "github.com/XiaoMi/Gaea/parser/tidb-types/parser_driver"
+	"github.com/nooncall/shazam/parser/ast"
+	driver "github.com/nooncall/shazam/parser/tidb-types/parser_driver"
 )
 
 // BinaryOperationFieldtype declares field type of binary operation

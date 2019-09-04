@@ -34,8 +34,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/XiaoMi/Gaea/core/errors"
-	"github.com/XiaoMi/Gaea/models"
+	"github.com/nooncall/shazam/core/errors"
+	"github.com/nooncall/shazam/models"
 )
 
 const (

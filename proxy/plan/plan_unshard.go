@@ -17,10 +17,10 @@ package plan
 import (
 	"fmt"
 
-	"github.com/XiaoMi/Gaea/backend"
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/parser/ast"
-	"github.com/XiaoMi/Gaea/util"
+	"github.com/nooncall/shazam/backend"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/parser/ast"
+	"github.com/nooncall/shazam/util"
 )
 
 // UnshardPlan is the plan for unshard statement

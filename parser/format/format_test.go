@@ -21,7 +21,7 @@ import (
 
 	. "github.com/pingcap/check"
 
-	"github.com/XiaoMi/Gaea/util/testleak"
+	"github.com/nooncall/shazam/util/testleak"
 )
 
 func TestT(t *testing.T) {

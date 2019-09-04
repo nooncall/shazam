@@ -3,8 +3,8 @@ package plan
 import (
 	"testing"
 
-	"github.com/XiaoMi/Gaea/parser"
-	"github.com/XiaoMi/Gaea/util"
+	"github.com/nooncall/shazam/parser"
+	"github.com/nooncall/shazam/util"
 )
 
 func TestExecuteIn(t *testing.T) {

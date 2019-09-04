@@ -22,7 +22,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/XiaoMi/Gaea/util/sync2"
+	"github.com/nooncall/shazam/util/sync2"
 )
 
 var lastID, count sync2.AtomicInt64

@@ -19,10 +19,10 @@ import (
 	"sync/atomic"
 	"testing"
 
-	"github.com/XiaoMi/Gaea/models"
-	"github.com/XiaoMi/Gaea/parser"
-	"github.com/XiaoMi/Gaea/proxy/router"
-	"github.com/XiaoMi/Gaea/proxy/sequence"
+	"github.com/nooncall/shazam/models"
+	"github.com/nooncall/shazam/parser"
+	"github.com/nooncall/shazam/proxy/router"
+	"github.com/nooncall/shazam/proxy/sequence"
 )
 
 type SQLTestcase struct {

@@ -15,7 +15,7 @@
 package backend
 
 import (
-	"github.com/XiaoMi/Gaea/mysql"
+	"github.com/nooncall/shazam/mysql"
 )
 
 // PooledConnection app use this object to exec sql

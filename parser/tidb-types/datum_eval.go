@@ -17,7 +17,7 @@ import (
 	"github.com/cznic/mathutil"
 	"github.com/pingcap/errors"
 
-	"github.com/XiaoMi/Gaea/parser/opcode"
+	"github.com/nooncall/shazam/parser/opcode"
 )
 
 // ComputePlus computes the result of a+b.

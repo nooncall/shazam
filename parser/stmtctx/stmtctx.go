@@ -18,7 +18,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/XiaoMi/Gaea/mysql"
+	"github.com/nooncall/shazam/mysql"
 )
 
 const (

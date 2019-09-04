@@ -22,9 +22,9 @@ import (
 	"net"
 	"strings"
 
-	"github.com/XiaoMi/Gaea/log"
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/util/sync2"
+	"github.com/nooncall/shazam/log"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/util/sync2"
 )
 
 // DirectConnection means connection to backend mysql

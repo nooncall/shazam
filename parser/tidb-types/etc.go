@@ -22,10 +22,10 @@ import (
 
 	"github.com/pingcap/errors"
 
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/parser/opcode"
-	"github.com/XiaoMi/Gaea/parser/terror"
-	ast "github.com/XiaoMi/Gaea/parser/types"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/parser/opcode"
+	"github.com/nooncall/shazam/parser/terror"
+	ast "github.com/nooncall/shazam/parser/types"
 )
 
 // IsTypeBlob returns a boolean indicating whether the tp is a blob type.

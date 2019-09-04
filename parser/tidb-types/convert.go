@@ -24,11 +24,11 @@ import (
 
 	"github.com/pingcap/errors"
 
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/parser/stmtctx"
-	"github.com/XiaoMi/Gaea/parser/terror"
-	"github.com/XiaoMi/Gaea/parser/tidb-types/json"
-	"github.com/XiaoMi/Gaea/util/hack"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/parser/stmtctx"
+	"github.com/nooncall/shazam/parser/terror"
+	"github.com/nooncall/shazam/parser/tidb-types/json"
+	"github.com/nooncall/shazam/util/hack"
 )
 
 func truncateStr(str string, flen int) string {

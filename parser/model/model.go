@@ -21,9 +21,9 @@ import (
 	"github.com/pingcap/errors"
 	tipb "github.com/pingcap/tipb/go-tipb"
 
-	"github.com/XiaoMi/Gaea/mysql"
-	"github.com/XiaoMi/Gaea/parser/auth"
-	"github.com/XiaoMi/Gaea/parser/types"
+	"github.com/nooncall/shazam/mysql"
+	"github.com/nooncall/shazam/parser/auth"
+	"github.com/nooncall/shazam/parser/types"
 )
 
 // SchemaState is the state for schema elements.

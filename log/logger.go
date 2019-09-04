@@ -17,7 +17,7 @@ package log
 import (
 	"fmt"
 
-	"github.com/XiaoMi/Gaea/log/xlog"
+	"github.com/nooncall/shazam/log/xlog"
 )
 
 var logger Logger

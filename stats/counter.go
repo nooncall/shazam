@@ -19,8 +19,8 @@ package stats
 import (
 	"strconv"
 
-	"github.com/XiaoMi/Gaea/log"
-	"github.com/XiaoMi/Gaea/util/sync2"
+	"github.com/nooncall/shazam/log"
+	"github.com/nooncall/shazam/util/sync2"
 )
 
 // Counter tracks a cumulative count of a metric.

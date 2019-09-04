@@ -20,8 +20,8 @@ import (
 
 	"github.com/pingcap/errors"
 
-	"github.com/XiaoMi/Gaea/log"
-	"github.com/XiaoMi/Gaea/mysql"
+	"github.com/nooncall/shazam/log"
+	"github.com/nooncall/shazam/mysql"
 )
 
 // Global error instances.
