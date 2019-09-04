@@ -24,11 +24,11 @@ import (
 	"strings"
 	"time"
 
+	"github.com/gin-contrib/gzip"
+	"github.com/gin-gonic/gin"
 	"github.com/nooncall/shazam/log"
 	"github.com/nooncall/shazam/models"
 	"github.com/nooncall/shazam/util"
-	"github.com/gin-contrib/gzip"
-	"github.com/gin-gonic/gin"
 )
 
 const (

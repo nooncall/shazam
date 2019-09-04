@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/prometheus/client_golang/prometheus"
-	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/nooncall/shazam/log"
 	"github.com/nooncall/shazam/stats"
+	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 // PromBackend implements PullBackend using Prometheus as the backing metrics storage.
