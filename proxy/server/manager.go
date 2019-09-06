@@ -500,10 +500,36 @@ func (u *UserManager) ClearNamespaceUsers(namespace string) {
 
 func (u *UserManager) addNamespaceUsers(namespace *models.Namespace) {
 	for _, user := range namespace.Users {
-		key := getUserKey(user.UserName, user.Password)
-		u.userNamespaces[key] = namespace.Name
-		u.users[user.UserName] = append(u.users[user.UserName], user.Password)
+		u.addNamespaceUserPassword(namespace.Name, user.UserName, user.Password)
 	}
+}
+
+func (u *UserManager) addNamespaceUserPassword(namespace, username, password string) {
+	if u.isUserPasswordExists(username, password) {
+		errMsg := fmt.Sprintf("init namespace error, duplicated username and password, namespace: %s, user: %s", namespace, username)
+		fmt.Println(errMsg)
+		log.Fatal(errMsg)
+		return
+	}
+	
+	key := getUserKey(username, password)
+	u.userNamespaces[key] = namespace
+	u.users[username] = append(u.users[username], password)
+}
+
+func (u *UserManager) isUserPasswordExists(username, password string) bool {
+	passwords, ok := u.users[username]
+	if !ok {
+		return false
+	}
+
+	for _, passwd := range passwords {
+		if passwd == password {
+			return true
+		}
+	}
+
+	return false
 }
 
 // CheckUser check if user in users
