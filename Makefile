@@ -1,18 +1,18 @@
 ROOT:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-GAEA_OUT:=$(ROOT)/bin/gaea
-GAEA_CC_OUT:=$(ROOT)/bin/gaea-cc
+SHAZAM_PROXY_OUT:=$(ROOT)/bin/shazam-proxy
+SHAZAM_CC_OUT:=$(ROOT)/bin/shazam-cc
 PKG:=$(shell go list -m)
 
-.PHONY: all build gaea gaea-cc parser clean test build_with_coverage
+.PHONY: all build shazam-proxy shazam-cc parser clean test build_with_coverage
 all: build test
 
-build: parser gaea gaea-cc
+build: parser shazam-proxy shazam-cc
 
-gaea:
-	go build -o $(GAEA_OUT) $(shell bash gen_ldflags.sh $(GAEA_OUT) $(PKG)/core $(PKG)/cmd/gaea)
+shazam-proxy:
+	go build -o $(SHAZAM_PROXY_OUT) $(shell bash gen_ldflags.sh $(SHAZAM_PROXY_OUT) $(PKG)/core $(PKG)/cmd/shazam-proxy)
 
-gaea-cc:
-	go build -o $(GAEA_CC_OUT) $(shell bash gen_ldflags.sh $(GAEA_CC_OUT) $(PKG)/core $(PKG)/cmd/gaea-cc)
+shazam-cc:
+	go build -o $(SHAZAM_CC_OUT) $(shell bash gen_ldflags.sh $(SHAZAM_CC_OUT) $(PKG)/core $(PKG)/cmd/shazam-cc)
 
 parser:
 	cd parser && make && cd ..
@@ -28,4 +28,4 @@ test:
 	go tool cover -html=.coverage.out -o .coverage.html
 
 build_with_coverage:
-	go test -c cmd/gaea/main.go cmd/gaea/main_test.go -coverpkg ./... -covermode=count -o bin/gaea
+	go test -c cmd/shazam/main.go cmd/shazam/main_test.go -coverpkg ./... -covermode=count -o bin/shazam

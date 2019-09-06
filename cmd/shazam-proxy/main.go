@@ -29,8 +29,8 @@ import (
 	"github.com/nooncall/shazam/proxy/server"
 )
 
-var configFile = flag.String("config", "etc/gaea.ini", "gaea config file")
-var info = flag.Bool("info", false, "show info of gaea")
+var configFile = flag.String("config", "etc/shazam_proxy.ini", "shazam proxy config file")
+var info = flag.Bool("info", false, "show info of shazam proxy")
 
 func main() {
 	flag.Parse()
@@ -41,7 +41,7 @@ func main() {
 
 	fmt.Printf("Build Version Information:%s\n", core.Info.LongForm())
 
-	// init config of gaea proxy
+	// init config of shazam proxy
 	cfg, err := models.ParseProxyConfigFromFile(*configFile)
 	if err != nil {
 		fmt.Printf("parse config file error:%v\n", err.Error())
