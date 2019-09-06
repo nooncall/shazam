@@ -18,7 +18,7 @@ import (
 )
 
 func TestNamespaceEncode(t *testing.T) {
-	var namespace = &Namespace{Name: "gaea_namespace_1", Online: true, ReadOnly: true, AllowedDBS: make(map[string]bool), Slices: make([]*Slice, 0), ShardRules: make([]*Shard, 0), Users: make([]*User, 0), DefaultSlice: "slice-0"}
+	var namespace = &Namespace{Name: "shazam_namespace_1", Online: true, ReadOnly: true, AllowedDBS: make(map[string]bool), Slices: make([]*Slice, 0), ShardRules: make([]*Shard, 0), Users: make([]*User, 0), DefaultSlice: "slice-0"}
 
 	slice0 := &Slice{Name: "slice-0", UserName: "root", Password: "root", Master: "127.0.0.1:3306", Slaves: []string{"127.0.0.1:3306", "127.0.0.1:3306"}, Capacity: 128, MaxCapacity: 128, IdleTimeout: 120}
 	slice1 := &Slice{Name: "slice-1", UserName: "root", Password: "root", Master: "127.0.0.1:3306", Slaves: []string{"127.0.0.1:3306", "127.0.0.1:3306"}, Capacity: 128, MaxCapacity: 128, IdleTimeout: 120}
@@ -28,12 +28,12 @@ func TestNamespaceEncode(t *testing.T) {
 	namespace.AllowedDBS["db1"] = true
 	namespace.AllowedDBS["db2"] = true
 
-	shard1 := &Shard{DB: "gaea", Table: "test_shard_hash", Type: "hash", Key: "id", Locations: []int{1, 1}, Slices: []string{"slice-0", "slice-1"}}
-	shard2 := &Shard{DB: "gaea", Table: "test_shard_range", Type: "range", Key: "id", Locations: []int{1, 1}, Slices: []string{"slice-0", "slice-1"}, TableRowLimit: 10000}
+	shard1 := &Shard{DB: "shazam", Table: "test_shard_hash", Type: "hash", Key: "id", Locations: []int{1, 1}, Slices: []string{"slice-0", "slice-1"}}
+	shard2 := &Shard{DB: "shazam", Table: "test_shard_range", Type: "range", Key: "id", Locations: []int{1, 1}, Slices: []string{"slice-0", "slice-1"}, TableRowLimit: 10000}
 	namespace.ShardRules = append(namespace.ShardRules, shard1)
 	namespace.ShardRules = append(namespace.ShardRules, shard2)
 
-	user1 := &User{UserName: "test1", Password: "test1", Namespace: "gaea_namespace_1", RWFlag: 2, RWSplit: 1}
+	user1 := &User{UserName: "test1", Password: "test1", Namespace: "shazam_namespace_1", RWFlag: 2, RWSplit: 1}
 	namespace.Users = append(namespace.Users, user1)
 
 	t.Logf(string(namespace.Encode()))
@@ -41,13 +41,13 @@ func TestNamespaceEncode(t *testing.T) {
 
 func TestEncrypt(t *testing.T) {
 	key := "1234abcd5678efg*"
-	var namespace = &Namespace{Name: "gaea_namespace_1", Online: true, ReadOnly: true, AllowedDBS: make(map[string]bool), Slices: make([]*Slice, 0), ShardRules: make([]*Shard, 0), Users: make([]*User, 0), DefaultSlice: "slice-0"}
+	var namespace = &Namespace{Name: "shazam_namespace_1", Online: true, ReadOnly: true, AllowedDBS: make(map[string]bool), Slices: make([]*Slice, 0), ShardRules: make([]*Shard, 0), Users: make([]*User, 0), DefaultSlice: "slice-0"}
 	slice0 := &Slice{Name: "slice-0", UserName: "test1", Password: "fdsafdsa23423sx*123", Master: "127.0.0.1:3306", Slaves: []string{"127.0.0.1:3306", "127.0.0.1:3306"}, Capacity: 128, MaxCapacity: 128, IdleTimeout: 120}
 	slice1 := &Slice{Name: "slice-1", UserName: "test2", Password: "fasd14-43828284s*", Master: "127.0.0.1:3306", Slaves: []string{"127.0.0.1:3306", "127.0.0.1:3306"}, Capacity: 128, MaxCapacity: 128, IdleTimeout: 120}
 	namespace.Slices = append(namespace.Slices, slice0)
 	namespace.Slices = append(namespace.Slices, slice1)
-	user1 := &User{UserName: "test1", Password: "testfadsfafdsla234231", Namespace: "gaea_namespace_1", RWFlag: 2, RWSplit: 1}
-	user2 := &User{UserName: "test2", Password: "test2fdsafw5r3234", Namespace: "gaea_namespace_1", RWFlag: 2, RWSplit: 1}
+	user1 := &User{UserName: "test1", Password: "testfadsfafdsla234231", Namespace: "shazam_namespace_1", RWFlag: 2, RWSplit: 1}
+	user2 := &User{UserName: "test2", Password: "test2fdsafw5r3234", Namespace: "shazam_namespace_1", RWFlag: 2, RWSplit: 1}
 	namespace.Users = append(namespace.Users, user1)
 	namespace.Users = append(namespace.Users, user2)
 	err := namespace.Encrypt(key)

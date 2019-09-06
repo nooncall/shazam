@@ -2,11 +2,11 @@
 
 ## 背景
 
-应用端使用prepare主要考虑通过固定sql模板，在执行sql时只传输参数，减少数据包传输大小，提升sql执行效率。对于非分库分表的情况，我们可以直接通过转发execute(对应后端连接可能是prepare+execute+close)的方式进行支持。但是对于分库分表的情形，需要计算路由，重写sql，支持起来会非常麻烦。商城目前的分库分表中间件是mycat，而mycat是支持prepare的，而gaea的prepare方案也是参照mycat，即将prepare statements的执行转换为sql的执行，然后在应答阶段，根据文本的应答内容构造二进制应答内容，返回给客户端，从而统一了分库分表的处理逻辑。
+应用端使用prepare主要考虑通过固定sql模板，在执行sql时只传输参数，减少数据包传输大小，提升sql执行效率。对于非分库分表的情况，我们可以直接通过转发execute(对应后端连接可能是prepare+execute+close)的方式进行支持。但是对于分库分表的情形，需要计算路由，重写sql，支持起来会非常麻烦。商城目前的分库分表中间件是mycat，而mycat是支持prepare的，而shazam的prepare方案也是参照mycat，即将prepare statements的执行转换为sql的执行，然后在应答阶段，根据文本的应答内容构造二进制应答内容，返回给客户端，从而统一了分库分表的处理逻辑。
 
 ## prepare
 
-gaea在接到preprae请求后，首先计算参数个数、参数偏移位置和stmt-id。然后根据以上数据，构造statement对象并保存在SessionExecutor的stmts内，stmts为一个map，key为stmt-id，value即为构造的statement对象。
+shazam在接到preprae请求后，首先计算参数个数、参数偏移位置和stmt-id。然后根据以上数据，构造statement对象并保存在SessionExecutor的stmts内，stmts为一个map，key为stmt-id，value即为构造的statement对象。
 
 prepare阶段主要是计算、保存execute需要使用的变量信息，prepare应答数据内也会包含这些变量信息。
 
@@ -34,7 +34,7 @@ close的处理逻辑比较简单，服务端收到close请求后，删除prepare
 
 ## 总结
 
-gaea对于prepare的处理初衷还是考虑协议的兼容和简化处理逻辑，对于client->proxy->mysql这样接口来说，client->proxy是prepare协议，proxy->mysql是文本协议，所以整体来看在gaea环境下使用prepare性能提升有限，还是建议直接使用sql。
+shazam对于prepare的处理初衷还是考虑协议的兼容和简化处理逻辑，对于client->proxy->mysql这样接口来说，client->proxy是prepare协议，proxy->mysql是文本协议，所以整体来看在shazam环境下使用prepare性能提升有限，还是建议直接使用sql。
 
 ## 参考资料
 

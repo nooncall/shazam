@@ -3160,7 +3160,7 @@ func TestSelectMycatOrderByDatabase(t *testing.T) {
 func prepareShardKingshardRouter() (*router.Router, error) {
 	nsStr := `
 {
-    "name": "gaea_namespace_1",
+    "name": "shazam_namespace_1",
     "online": true,
     "read_only": true,
     "allowed_dbs": {
@@ -3230,7 +3230,7 @@ func prepareShardKingshardRouter() (*router.Router, error) {
         {
             "user_name": "test_shard_hash",
             "password": "test_shard_hash",
-            "namespace": "gaea_namespace_1",
+            "namespace": "shazam_namespace_1",
             "rw_flag": 2,
             "rw_split": 1
         }

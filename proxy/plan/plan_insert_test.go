@@ -100,7 +100,7 @@ func TestMycatShardSimpleInsert(t *testing.T) {
 			sql: "insert into tbl_mycat (id,id,a) values (6,6,'hi')",
 			sqls: map[string]map[string][]string{
 				"slice-1": {
-					"db_mycat_2": {"INSERT INTO `tbl_mycat` (`id`,`id`,`a`) VALUES (6,6,'hi')"}, // invalid syntax, but gaea does not handle
+					"db_mycat_2": {"INSERT INTO `tbl_mycat` (`id`,`id`,`a`) VALUES (6,6,'hi')"}, // invalid syntax but does not handle
 				},
 			},
 		},

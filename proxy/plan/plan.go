@@ -381,7 +381,7 @@ func (t *TableAliasStmtInfo) RecordSubqueryTableAlias(alias string) (router.Rule
 		return nil, fmt.Errorf("no explicit table exist except subquery")
 	}
 
-	table := "gaea_subquery_" + alias
+	table := "shazam_subquery_" + alias
 	if err := t.setTableAlias(table, alias); err != nil {
 		return nil, fmt.Errorf("set subquery table alias error: %v", err)
 	}

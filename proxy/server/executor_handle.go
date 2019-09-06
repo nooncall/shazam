@@ -283,7 +283,7 @@ func (se *SessionExecutor) handleSetVariable(v *ast.VariableAssignment) error {
 
 		// unsupported
 	case "transaction":
-		return fmt.Errorf("does not support set transaction in gaea")
+		return fmt.Errorf("does not support set transaction in shazam")
 	default:
 		return nil
 	}

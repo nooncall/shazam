@@ -33,7 +33,7 @@ import (
 var ErrClosedEtcdClient = errors.New("use of closed etcd client")
 
 const (
-	defaultEtcdPrefix = "/gaea"
+	defaultEtcdPrefix = "/shazam"
 )
 
 // EtcdClient etcd client

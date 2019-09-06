@@ -30,7 +30,7 @@ const (
 	// TimeFormat time format
 	TimeFormat string = "2006-01-02 15:04:05"
 	// ServerVersion server version
-	ServerVersion string = "5.6.20-gaea"
+	ServerVersion string = "5.6.20-shazam"
 	// MysqlNativePassword uses a salt and transmits a hash on the wire.
 	MysqlNativePassword = "mysql_native_password"
 	// ProtocolVersion is the current version of the protocol.

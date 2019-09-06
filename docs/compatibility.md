@@ -1,14 +1,14 @@
-# Gaea兼容范围
+# shazam兼容范围
 
 ## 协议兼容性
 
-Gaea支持text协议和binary协议. 
+shazam支持text协议和binary协议. 
 
 ## SQL兼容性
 
-Gaea对分表和非分表的兼容性有所不同. 非分表理论上支持所有DML语句, 部分ADMIN语句.
+shazam对分表和非分表的兼容性有所不同. 非分表理论上支持所有DML语句, 部分ADMIN语句.
 
-对分表情况, Gaea本身的定位是**轻量级, 高性能**, 因此采用轻量的分表实现方式, 对一条SQL的执行, 只做字段改写和结果聚合, 不做SQL语义上的改写和多条SQL结果集的拼接计算. 
+对分表情况, shazam本身的定位是**轻量级, 高性能**, 因此采用轻量的分表实现方式, 对一条SQL的执行, 只做字段改写和结果聚合, 不做SQL语义上的改写和多条SQL结果集的拼接计算. 
 
 **以下支持/不支持操作均指分表情况.**
 
@@ -27,7 +27,7 @@ Gaea对分表和非分表的兼容性有所不同. 非分表理论上支持所�
 - JOIN USING不支持指定表名或DB名.
 - 表别名不允许与表名重复.
   - select animals.id from animals, test1.xm_order_extend as animals;
-  - 这句SQL在MySQL中被认为是正确的, 但是gaea会明确拒绝这种操作.
+  - 这句SQL在MySQL中被认为是正确的, 但是shazam会明确拒绝这种操作.
 
 ### INSERT
 
@@ -46,5 +46,5 @@ Gaea对分表和非分表的兼容性有所不同. 非分表理论上支持所�
 
 ## 事务兼容性
 
-- Gaea目前未实现分布式事务, 只支持单分片事务, 使用跨分片事务会报错.
+- shazam目前未实现分布式事务, 只支持单分片事务, 使用跨分片事务会报错.
 - 不支持SAVEPOINT, RELEASE SAVEPOINT, ROLLBACK TO SAVEPOINT **TODO**

@@ -1,12 +1,12 @@
 [![LICENSE](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://github.com/nooncall/shazam/blob/master/LICENSE)
-[![Build Status](https://travis-ci.org/XiaoMi/Gaea.svg?branch=master)](https://travis-ci.org/XiaoMi/Gaea)
+[![Build Status](https://travis-ci.org/nooncall/shazam.svg?branch=master)](https://travis-ci.org/nooncall/shazam)
 [![Go Report Card](https://goreportcard.com/badge/github.com/nooncall/shazam)](https://goreportcard.com/report/github.com/nooncall/shazam)
 
 ## 简介
 
 **shazam是一款兼容MySQL协议的数据库中间件, 其前身是Gaea.**
 
-Gaea是小米中国区电商研发部研发的基于mysql协议的数据库中间件，目前在小米商城大陆和海外得到广泛使用，包括订单、社区、活动等多个业务。Gaea支持分库分表、sql路由、读写分离等基本特性，更多详细功能可以参照下面的功能列表。其中分库分表方案兼容了mycat和kingshard两个项目的路由方式。Gaea在设计、实现阶段参照了mycat、kingshard和vitess，并使用tidb parser作为内置的sql parser，在此表达诚挚感谢。为了方便使用和学习Gaea，我们也提供了详细的使用和设计文档，也欢迎大家多多参与。
+Gaea是小米中国区电商研发部研发的基于mysql协议的数据库中间件，目前在小米商城大陆和海外得到广泛使用，包括订单、社区、活动等多个业务。Gaea支持分库分表、sql路由、读写分离等基本特性，更多详细功能可以参照下面的功能列表。其中分库分表方案兼容了mycat和kingshard两个项目的路由方式。Gaea在设计、实现阶段参照了mycat、kingshard和vitess，并使用tidb parser作为内置的sql parser。
 
 ## 功能列表
 
@@ -34,7 +34,7 @@ Gaea是小米中国区电商研发部研发的基于mysql协议的数据库中�
 
 ## 架构图
 
-![gaea架构图](docs/assets/architecture.png)
+![shazam架构图](docs/assets/architecture.png)
 
 ## 安装使用
 
@@ -48,8 +48,8 @@ Gaea是小米中国区电商研发部研发的基于mysql协议的数据库中�
 
 - [整体架构](docs/architecture.md)
 - [多租户的设计与实现](docs/multi-tenant.md)
-- [gaea配置热加载设计与实现](docs/config-reloading.md)
-- [gaea proxy后端连接池的设计与实现](docs/connection-pool.md)
+- [配置热加载设计与实现](docs/config-reloading.md)
+- [后端连接池的设计与实现](docs/connection-pool.md)
 - [prepare的设计与实现](docs/prepare.md)
 
 ## Roadmap

@@ -648,19 +648,19 @@ func (s *StatisticManager) Init(cfg *models.Proxy) error {
 		return err
 	}
 
-	s.sqlTimings = stats.NewMultiTimings("SqlTimings", "gaea proxy sql sqlTimings", []string{statsLabelOperation, statsLabelNamespace})
-	s.sqlFingerprintSlowCounts = stats.NewCountersWithMultiLabels("SqlFingerprintSlowCounts", "gaea proxy sql fingerprint slow counts", []string{statsLabelFingerprint, statsLabelNamespace})
-	s.sqlErrorCounts = stats.NewCountersWithMultiLabels("SqlErrorCounts", "gaea proxy sql error counts per error type", []string{statsLabelOperation, statsLabelNamespace})
-	s.sqlFingerprintErrorCounts = stats.NewCountersWithMultiLabels("SqlFingerprintErrorCounts", "gaea proxy sql fingerprint error counts", []string{statsLabelFingerprint, statsLabelNamespace})
-	s.sqlForbidenCounts = stats.NewCountersWithMultiLabels("SqlForbiddenCounts", "gaea proxy sql error counts per error type", []string{statsLabelFingerprint, statsLabelNamespace})
-	s.flowCounts = stats.NewCountersWithMultiLabels("FlowCounts", "gaea proxy flow counts", []string{statsLabelNamespace, statsLabelFlowDirection})
-	s.sessionCounts = stats.NewGaugesWithMultiLabels("SessionCounts", "gaea proxy session counts", []string{statsLabelNamespace})
+	s.sqlTimings = stats.NewMultiTimings("SqlTimings", "sql sqlTimings", []string{statsLabelOperation, statsLabelNamespace})
+	s.sqlFingerprintSlowCounts = stats.NewCountersWithMultiLabels("SqlFingerprintSlowCounts", "sql fingerprint slow counts", []string{statsLabelFingerprint, statsLabelNamespace})
+	s.sqlErrorCounts = stats.NewCountersWithMultiLabels("SqlErrorCounts", "sql error counts per error type", []string{statsLabelOperation, statsLabelNamespace})
+	s.sqlFingerprintErrorCounts = stats.NewCountersWithMultiLabels("SqlFingerprintErrorCounts", "sql fingerprint error counts", []string{statsLabelFingerprint, statsLabelNamespace})
+	s.sqlForbidenCounts = stats.NewCountersWithMultiLabels("SqlForbiddenCounts", "sql error counts per error type", []string{statsLabelFingerprint, statsLabelNamespace})
+	s.flowCounts = stats.NewCountersWithMultiLabels("FlowCounts", "flow counts", []string{statsLabelNamespace, statsLabelFlowDirection})
+	s.sessionCounts = stats.NewGaugesWithMultiLabels("SessionCounts", "session counts", []string{statsLabelNamespace})
 
-	s.backendSQLTimings = stats.NewMultiTimings("BackendSqlTimings", "gaea proxy backend sql sqlTimings", []string{statsLabelOperation, statsLabelNamespace})
+	s.backendSQLTimings = stats.NewMultiTimings("BackendSqlTimings", "backend sql sqlTimings", []string{statsLabelOperation, statsLabelNamespace})
 
-	s.backendSQLFingerprintSlowCounts = stats.NewCountersWithMultiLabels("BackendSqlFingerprintSlowCounts", "gaea proxy backend sql fingerprint slow counts", []string{statsLabelFingerprint, statsLabelNamespace})
-	s.backendSQLErrorCounts = stats.NewCountersWithMultiLabels("BackendSqlErrorCounts", "gaea proxy backend sql error counts per error type", []string{statsLabelOperation, statsLabelNamespace})
-	s.backendSQLFingerprintErrorCounts = stats.NewCountersWithMultiLabels("BackendSqlFingerprintErrorCounts", "gaea proxy backend sql fingerprint error counts", []string{statsLabelFingerprint, statsLabelNamespace})
+	s.backendSQLFingerprintSlowCounts = stats.NewCountersWithMultiLabels("BackendSqlFingerprintSlowCounts", "backend sql fingerprint slow counts", []string{statsLabelFingerprint, statsLabelNamespace})
+	s.backendSQLErrorCounts = stats.NewCountersWithMultiLabels("BackendSqlErrorCounts", "backend sql error counts per error type", []string{statsLabelOperation, statsLabelNamespace})
+	s.backendSQLFingerprintErrorCounts = stats.NewCountersWithMultiLabels("BackendSqlFingerprintErrorCounts", "backend sql fingerprint error counts", []string{statsLabelFingerprint, statsLabelNamespace})
 
 	s.startClearTask()
 	return nil
