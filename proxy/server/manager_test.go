@@ -302,6 +302,19 @@ func TestUserManager_CheckPassword(t *testing.T) {
 	}
 }
 
+func TestUserManager_IsUserPasswordExists(t *testing.T) {
+	nsCfg := prepareNamespaceUsers()
+	userManager, err := CreateUserManager(nsCfg)
+	if err != nil {
+		t.Fatal(err)
+	}
+	userManager.addNamespaceUserPassword("test", "user1", "passwd1")
+	if !userManager.isUserPasswordExists("user1","passwd1") {
+		t.FailNow()
+	}
+	userManager.addNamespaceUserPassword("test", "user1", "passwd1")
+}
+
 func prepareNamespaceUsers() map[string]*models.Namespace {
 	nsMap := make(map[string]*models.Namespace)
 	ns1 := "namespace1"
