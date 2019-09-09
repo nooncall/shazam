@@ -11,9 +11,9 @@ cat << EOF | gofmt > core/version.go
 package core
 
 const (
-    // Version means gaea version
+    // Version means shazam version
     Version = "$version"
-    // Compile means gaea compole info
+    // Compile means shazam compole info
     Compile = "$compile"
 )
 EOF

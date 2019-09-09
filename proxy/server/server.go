@@ -128,7 +128,7 @@ func (s *Server) onConn(c net.Conn) {
 
 	// must invoke after handshake
 	if allowConnect := cc.IsAllowConnect(); allowConnect == false {
-		err := mysql.NewError(mysql.ErrAccessDenied, "ip address access denied by gaea")
+		err := mysql.NewError(mysql.ErrAccessDenied, "ip address access denied by shazam")
 		cc.c.writeErrorPacket(err)
 		return
 	}

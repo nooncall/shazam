@@ -148,7 +148,7 @@ func handleSubqueryJoin(p *TableAliasStmtInfo, join *ast.Join) error {
 	return nil
 }
 
-// gaea规定在子查询的FROM表名中不能再出现子查询
+// shazam要求在子查询的FROM表名中不能再出现子查询
 func rewriteSubqueryTableSource(p *TableAliasStmtInfo, tableSource *ast.TableSource) error {
 	switch tableSource.Source.(type) {
 	case *ast.TableName:

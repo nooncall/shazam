@@ -18,7 +18,7 @@ import (
 	"github.com/go-ini/ini"
 )
 
-// CCConfig means gaea cc config
+// CCConfig means shazam cc config
 type CCConfig struct {
 	Addr          string `ini:"addr"`
 	AdminUserName string `ini:"admin_username"`

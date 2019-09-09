@@ -246,7 +246,7 @@ func (s *Server) Run() {
 		log.Notice("server exit.")
 		return
 	case err := <-errC:
-		log.Fatal("gaea cc serve failed, %v", err)
+		log.Fatal("shazam cc serve failed, %v", err)
 		return
 	}
 

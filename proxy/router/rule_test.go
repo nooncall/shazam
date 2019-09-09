@@ -71,7 +71,7 @@ func TestGetRealDatabases(t *testing.T) {
 func TestParseMycatRule(t *testing.T) {
 	var s = `
 	{
-		"name": "gaea_namespace_1",
+		"name": "shazam_namespace_1",
 		"online": true,
 		"read_only": true,
 		"allowed_dbs": {
@@ -106,7 +106,7 @@ func TestParseMycatRule(t *testing.T) {
 		],
 		"shard_rules": [
 			{
-				"db": "gaea",
+				"db": "shazam",
 				"table": "test_shard_mycat_mod",
 				"type": "mycat_mod",
 				"key": "id",
@@ -119,13 +119,13 @@ func TestParseMycatRule(t *testing.T) {
 					"slice-1"
 				],
 				"databases": [
-					"gaea_0",
-					"gaea_1"
+					"shazam_0",
+					"shazam_1"
 				],
-				"default_database": "gaea_0"
+				"default_database": "shazam_0"
 			},
 			{
-				"db": "gaea",
+				"db": "shazam",
 				"table": "test_shard_mycat_long",
 				"type": "mycat_long",
 				"key": "id",
@@ -138,15 +138,15 @@ func TestParseMycatRule(t *testing.T) {
 					"slice-1"
 				],
 				"databases": [
-					"gaea_0",
-					"gaea_1"
+					"shazam_0",
+					"shazam_1"
 				],
-				"default_database": "gaea_0",
+				"default_database": "shazam_0",
 				"partition_count": "1,1",
 				"partition_length": "256,768"
 			},
 			{
-				"db": "gaea",
+				"db": "shazam",
 				"table": "test_shard_mycat_murmur",
 				"type": "mycat_murmur",
 				"key": "id",
@@ -159,10 +159,10 @@ func TestParseMycatRule(t *testing.T) {
 					"slice-1"
 				],
 				"databases": [
-					"gaea_0",
-					"gaea_1"
+					"shazam_0",
+					"shazam_1"
 				],
-				"default_database": "gaea_0",
+				"default_database": "shazam_0",
 				"seed": "1",
 				"virtual_bucket_times": "160"
 			}
@@ -171,7 +171,7 @@ func TestParseMycatRule(t *testing.T) {
 			{
 				"UserName": "test_shard_hash",
 				"Password": "test_shard_hash",
-				"Namespace": "gaea_namespace_1",
+				"Namespace": "shazam_namespace_1",
 				"rw_flag": 2,
 				"rw_split": 1
 			}
@@ -193,7 +193,7 @@ func TestParseMycatRule(t *testing.T) {
 		t.Fatal("default rule parse not correct.")
 	}
 
-	mycatModRule := rt.GetRule("gaea", "test_shard_mycat_mod")
+	mycatModRule := rt.GetRule("shazam", "test_shard_mycat_mod")
 	if mycatModRule.GetType() != MycatModRuleType {
 		t.Fatal(mycatModRule.GetType())
 	}
@@ -202,7 +202,7 @@ func TestParseMycatRule(t *testing.T) {
 		t.Fatal("parse slices not correct.")
 	}
 
-	mycatLongRule := rt.GetRule("gaea", "test_shard_mycat_long")
+	mycatLongRule := rt.GetRule("shazam", "test_shard_mycat_long")
 	if mycatLongRule.GetType() != MycatLongRuleType {
 		t.Fatal(mycatLongRule.GetType())
 	}
@@ -212,7 +212,7 @@ func TestParseMycatRule(t *testing.T) {
 		t.Fatal("parse slices not correct.")
 	}
 
-	mycatMurmurRule := rt.GetRule("gaea", "test_shard_mycat_murmur")
+	mycatMurmurRule := rt.GetRule("shazam", "test_shard_mycat_murmur")
 	if mycatMurmurRule.GetType() != MycatMurmurRuleType {
 		t.Fatal(mycatLongRule.GetType())
 	}
@@ -225,7 +225,7 @@ func TestParseMycatRule(t *testing.T) {
 //TODO YYYY-MM-DD HH:MM:SS,YYYY-MM-DD test
 func TestParseDateRule(t *testing.T) {
 	var s = `
-	{"name": "gaea_namespace_1",
+	{"name": "shazam_namespace_1",
 	"online":true,
 	"read_only":true,
 	"allowed_dbs": {"db1":true,
@@ -258,7 +258,7 @@ func TestParseDateRule(t *testing.T) {
 	],
 	 "shard_rules": [
 		 {
-			 "db": "gaea",
+			 "db": "shazam",
 			 "table": "test_shard_year",
 			 "type": "date_year",
 			 "key": "date",
@@ -269,7 +269,7 @@ func TestParseDateRule(t *testing.T) {
 			 "date_range": ["2012-2015","2016-2018"]
 		 },
 		 {
-			 "db": "gaea",
+			 "db": "shazam",
 			 "table": "test_shard_month",
 			 "type": "date_month",
 			 "key": "date",
@@ -280,7 +280,7 @@ func TestParseDateRule(t *testing.T) {
 			 "date_range": ["201512-201603", "201604-201608"]
 		 },
 		 {
-			 "db": "gaea",
+			 "db": "shazam",
 			 "table": "test_shard_day",
 			 "type": "date_day",
 			 "key": "date",
@@ -295,7 +295,7 @@ func TestParseDateRule(t *testing.T) {
 		 {
 			 "UserName": "test_shard_hash",
 			 "Password": "test_shard_hash",
-			 "Namespace": "gaea_namespace_1",
+			 "Namespace": "shazam_namespace_1",
 			 "rw_flag": 2,
 			 "rw_split": 1
 		 }
@@ -317,7 +317,7 @@ func TestParseDateRule(t *testing.T) {
 		t.Fatal("default rule parse not correct.")
 	}
 
-	yearRule := rt.GetRule("gaea", "test_shard_year")
+	yearRule := rt.GetRule("shazam", "test_shard_year")
 	if yearRule.GetType() != DateYearRuleType {
 		t.Fatal(yearRule.GetType())
 	}
@@ -326,12 +326,12 @@ func TestParseDateRule(t *testing.T) {
 		t.Fatal("parse slices not correct.")
 	}
 
-	monthRule := rt.GetRule("gaea", "test_shard_month")
+	monthRule := rt.GetRule("shazam", "test_shard_month")
 	if monthRule.GetType() != DateMonthRuleType {
 		t.Fatal(monthRule.GetType())
 	}
 
-	dayRule := rt.GetRule("gaea", "test_shard_day")
+	dayRule := rt.GetRule("shazam", "test_shard_day")
 	if dayRule.GetType() != DateDayRuleType {
 		t.Fatal(monthRule.GetType())
 	}
@@ -339,7 +339,7 @@ func TestParseDateRule(t *testing.T) {
 
 func TestParseRule(t *testing.T) {
 	var s = `
-	{"name": "gaea_namespace_1",
+	{"name": "shazam_namespace_1",
 	"online":true,
 	"read_only":true,
 	"allowed_dbs": {"db1":true,
@@ -372,7 +372,7 @@ func TestParseRule(t *testing.T) {
 	],
 	 "shard_rules": [
 		 {
-			 "db": "gaea",
+			 "db": "shazam",
 			 "table": "test_shard_hash",
 			 "type": "hash",
 			 "key": "id",
@@ -388,7 +388,7 @@ func TestParseRule(t *testing.T) {
 			 "table_row_limit": 0
 		 },
 		 {
-			 "db": "gaea",
+			 "db": "shazam",
 			 "table": "test_shard_range",
 			 "type": "range",
 			 "key": "id",
@@ -408,7 +408,7 @@ func TestParseRule(t *testing.T) {
 		 {
 			 "UserName": "test1",
 			 "Password": "test1",
-			 "Namespace": "gaea_namespace_1",
+			 "Namespace": "shazam_namespace_1",
 			 "rw_flag": 2,
 			 "rw_split": 1
 		 }
@@ -429,9 +429,9 @@ func TestParseRule(t *testing.T) {
 		t.Fatal("default rule parse not correct.")
 	}
 
-	rt.GetRule("", "gaea.test_shard_hash")
+	rt.GetRule("", "shazam.test_shard_hash")
 
-	hashRule := rt.GetRule("gaea", "test_shard_hash")
+	hashRule := rt.GetRule("shazam", "test_shard_hash")
 	if hashRule.GetType() != HashRuleType {
 		t.Fatal(hashRule.GetType())
 	}
@@ -440,12 +440,12 @@ func TestParseRule(t *testing.T) {
 		t.Fatal("parse slices not correct.")
 	}
 
-	rangeRule := rt.GetRule("gaea", "test_shard_range")
+	rangeRule := rt.GetRule("shazam", "test_shard_range")
 	if rangeRule.GetType() != RangeRuleType {
 		t.Fatal(rangeRule.GetType())
 	}
 
-	defaultRule := rt.GetRule("gaea", "defaultRule_table")
+	defaultRule := rt.GetRule("shazam", "defaultRule_table")
 	if defaultRule == nil {
 		t.Fatal("must not nil")
 	}

@@ -36,7 +36,7 @@ func TestNamespaceBase(t *testing.T) {
 	store := newTestStore()
 	defer store.Close()
 	base := store.NamespaceBase()
-	if base != "/gaea/namespace" {
+	if base != "/shazam/namespace" {
 		t.Fatalf("test NamespaceBase failed, %v", base)
 	}
 }
@@ -45,7 +45,7 @@ func TestNamespacePath(t *testing.T) {
 	store := newTestStore()
 	defer store.Close()
 	path := store.NamespacePath("test")
-	if path != "/gaea/namespace/test" {
+	if path != "/shazam/namespace/test" {
 		t.Fatalf("test NamespacePath failed, %v", path)
 	}
 }

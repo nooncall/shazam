@@ -1,12 +1,12 @@
 # 分片表配置
 
-Gaea支持kingshard分表规则和mycat分库规则, 用户可以在不迁移任何数据的情况下, 从kingshard和mycat切换到Gaea.
+shazam支持kingshard分表规则和mycat分库规则, 用户可以在不迁移任何数据的情况下, 从kingshard和mycat切换到shazam.
 
 ### kingshard分表配置
 
-Gaea支持kingshard常用分表规则, 对应关系如下:
+shazam支持kingshard常用分表规则, 对应关系如下:
 
-| kingshard规则名称 | Gaea规则名称 |
+| kingshard规则名称 | shazam规则名称 |
 | ---------------- | ---------- |
 | hash             | hash       |
 | range            | range      |
@@ -53,9 +53,9 @@ Gaea支持kingshard常用分表规则, 对应关系如下:
 
 ### mycat分库配置
 
-Gaea支持mycat的常用分库规则, 对应关系如下:
+shazam支持mycat的常用分库规则, 对应关系如下:
 
-| mycat规则名称          | Gaea规则名称       |
+| mycat规则名称          | shazam规则名称       |
 | --------------------- | ----------------- |
 | PartitionByMod        | mycat_mod         |
 | PartitionByLong       | mycat_long        |
@@ -178,9 +178,9 @@ mycat_murmur的配置规则如下:
 }
 ```
 
-其中`seed`, `virtual_bucket_times`配置项的含义与mycat `PartitionByMurmurHash`规则中的同名配置项的含义相同. 而在mycat中需要指定的`count`配置项, 在Gaea中通过locations自动判断, 不需要手动指定.
+其中`seed`, `virtual_bucket_times`配置项的含义与mycat `PartitionByMurmurHash`规则中的同名配置项的含义相同. 而在mycat中需要指定的`count`配置项, 在shazam中通过locations自动判断, 不需要手动指定.
 
-目前Gaea中不支持配置weight, 所有bucket weight都是1.
+目前shazam中不支持配置weight, 所有bucket weight都是1.
 
 ##### PartitionByString
 
@@ -213,7 +213,7 @@ mycat_string的配置规则如下:
 
 ### 关联表和全局表
 
-Gaea分片SQL要求多个表具有关联关系 (一个分片表, 多个关联表), 或者只存在一个分片表, 其余均为全局表.
+shazam分片SQL要求多个表具有关联关系 (一个分片表, 多个关联表), 或者只存在一个分片表, 其余均为全局表.
 
 ##### 关联表
 

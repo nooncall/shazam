@@ -30,15 +30,15 @@ import (
 	"github.com/nooncall/shazam/models"
 )
 
-var ccConfigFile = flag.String("c", "./etc/gaea_cc.ini", "gaea cc配置")
-var info = flag.Bool("info", false, "show info of gaea-cc")
+var ccConfigFile = flag.String("c", "./etc/shazam_cc.ini", "shazam cc配置")
+var info = flag.Bool("info", false, "show info of shazam-cc")
 
 func initXLog(ccConfig *models.CCConfig) error {
 	cfg := make(map[string]string, 4)
 	cfg["path"] = ccConfig.LogPath
 	cfg["filename"] = ccConfig.LogFileName
 	cfg["level"] = ccConfig.LogLevel
-	cfg["service"] = "gaea-cc"
+	cfg["service"] = "shazam-cc"
 	cfg["skip"] = "5"
 
 	logger, err := xlog.CreateLogManager(ccConfig.LogOutput, cfg)

@@ -1,6 +1,6 @@
 # 配置说明
 
-gaea配置由两部分组成，本地配置为gaea_proxy直接使用的配置内容，一般不需要在运行时改变。gaea为多租户模式，每个租户称为一个namespace，namespace 的配置在运行时都可变，一般保存在etcd中。
+shazam配置由两部分组成，本地配置为shazam-proxy直接使用的配置内容，一般不需要在运行时改变。shazam为多租户模式，每个租户称为一个namespace，namespace 的配置在运行时都可变，一般保存在etcd中。
 
 ## 本地配置说明
 
@@ -15,7 +15,7 @@ file_config_path=./etc/file
 coordinator_addr=http://127.0.0.1:2379
 
 ;远程配置(当前为etcd)根目录
-coordinator_root=/gaea
+coordinator_root=/shazam
 
 ;配置中心用户名和密码
 username=test
@@ -28,12 +28,12 @@ environ=test
 group_name=systech
 
 ;service name
-service_name=gaea_proxy
+service_name=shazam_proxy
 
 ;日志配置
 log_path=./logs
 log_level=Notice
-log_filename=gaea
+log_filename=shazam
 log_output=file
 
 ;管理地址
@@ -62,7 +62,7 @@ stats_backend_type=prometheus
 
 ## namespace配置说明
 
-namespace的配置格式为json，包含分表、非分表、实例等配置信息，都可在运行时改变。namespace的配置可以直接通过web平台进行操作，使用方不需要关心json里的内容，如果有兴趣参与到gaea的开发中，可以关注下字段含义，具体解释如下,格式为字段名称、类型、内容含义。
+namespace的配置格式为json，包含分表、非分表、实例等配置信息，都可在运行时改变。namespace的配置可以直接通过web平台进行操作，使用方不需要关心json里的内容，如果有兴趣参与到shazam的开发中，可以关注下字段含义，具体解释如下,格式为字段名称、类型、内容含义。
 
 | 字段名称         | 字段类型   | 字段含义                                           |
 | --------------- | ---------- | ----------------------------------------------- |
@@ -76,7 +76,7 @@ namespace的配置格式为json，包含分表、非分表、实例等配置信�
 | allowed_ip      | string数组 | 白名单IP                                          |
 | slices          | map数组    | 一主多从的物理实例，slice里map的具体字段可参照slice配置 |
 | shard_rules     | map数组    | 分库、分表、特殊表的配置内容，具体字段可参照shard配置    |
-| users           | map数组    | 应用端连接gaea所需要的用户配置，具体字段可参照users配置 |
+| users           | map数组    | 应用端连接shazam所需要的用户配置，具体字段可参照users配置 |
 
 ### slice配置
 
@@ -88,9 +88,9 @@ namespace的配置格式为json，包含分表、非分表、实例等配置信�
 | master           | string     | 主实例地址                                     |
 | slaves           | string数组 | 从实例地址列表                                 |
 | statistic_slaves | string数组 | 统计型从实例地址列表                           |
-| capacity         | int        | gaea_proxy与每个实例的连接池大小               |
-| max_capacity     | int        | gaea_proxy与每个实例的连接池最大大小           |
-| idle_timeout     | int        | gaea_proxy与后端mysql空闲连接存活时间，单位:秒 |
+| capacity         | int        | shazam_proxy与每个实例的连接池大小               |
+| max_capacity     | int        | shazam_proxy与每个实例的连接池最大大小           |
+| idle_timeout     | int        | shazam_proxy与后端mysql空闲连接存活时间，单位:秒 |
 
 ### shard配置
 
@@ -123,7 +123,7 @@ shazam是通过**用户名+密码**来唯一确定一个namespace的, 因此**�
 
 ```
 {
-    "name": "gaea_namespace_1",
+    "name": "shazam_namespace_1",
     "online": true,
     "read_only": true,
     "allowed_dbs": {
@@ -366,7 +366,7 @@ shazam是通过**用户名+密码**来唯一确定一个namespace的, 因此**�
         {
             "user_name": "test_shard",
             "password": "test_shard",
-            "namespace": "gaea_namespace_1",
+            "namespace": "shazam_namespace_1",
             "rw_flag": 2,
             "rw_split": 1
         }
@@ -375,15 +375,15 @@ shazam是通过**用户名+密码**来唯一确定一个namespace的, 因此**�
 }
 ```
 
-本配置截取自proxy/plan/plan_test.go, 如果对Gaea分表有困惑, 也可以参考这个包下的测试用例. 下面将结合该配置示例介绍Gaea的namespace配置细节.
+本配置截取自proxy/plan/plan_test.go, 如果对shazam分表有困惑, 也可以参考这个包下的测试用例. 下面将结合该配置示例介绍shazam的namespace配置细节.
 
-namespace名称为`gaea_namespace_1`. 在该namespace的`users`字段中添加一个gaea用户`test_shard`. 特别注意Gaea中的`用户名+密码`是全局唯一的 (映射到唯一的namespace). 该用户是读写用户, 且使用读写分离.
+namespace名称为`shazam_namespace_1`. 在该namespace的`users`字段中添加一个shazam用户`test_shard`. 特别注意shazam中的`用户名+密码`是全局唯一的 (映射到唯一的namespace). 该用户是读写用户, 且使用读写分离.
 
 在namespace中通过`allowed_dbs`字段配置了两个可用的数据库, 另一个相关的字段为`default_phy_dbs`, 该字段仅用于mycat分库路由的场景, 用于标记后端实际库名. 如果没有使用mycat路由, 则可以只配置`allowed_dbs`字段, 不配置`default_phy_dbs`字段.
 
 通过`slices`字段配置后端的slice. 一个slice实际上对应着一组MySQL实例, 可以包含一主多从. slice的名称目前必须使用`slice-0`, `slice-1`这样的格式, 如果自定义slice名称会出现找不到默认slice的问题. 
 
-在`shard_rules`字段中配置分片表信息. 按照Gaea处理方式, 可以将分片表分为3类: kingshard路由模式的分片表, mycat路由模式的分片表, 全局表.
+在`shard_rules`字段中配置分片表信息. 按照shazam处理方式, 可以将分片表分为3类: kingshard路由模式的分片表, mycat路由模式的分片表, 全局表.
 
 ### kingshard路由
 
@@ -445,7 +445,7 @@ kingshard路由不需要配置`databases`字段, 因为后端数据库名与逻�
 
 ### mycat路由
 
-mycat路由与kingshard不完全相同, Gaea主要兼容了mycat的分库路由模式. 
+mycat路由与kingshard不完全相同, shazam主要兼容了mycat的分库路由模式. 
 
 ```
 {

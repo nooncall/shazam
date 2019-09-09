@@ -218,16 +218,16 @@
     ],
     "users": [
         {
-            "user_name": "front_user1",
-            "password": "front_password1",
+            "user_name": "front_user_shard1",
+            "password": "front_password_shard1",
             "namespace": "test_namespace_shard",
             "rw_flag": 2,
             "rw_split": 1,
             "other_property": 0
         },
         {
-            "user_name": "front_user2",
-            "password": "front_password2",
+            "user_name": "front_user_shard2",
+            "password": "front_password_shard2",
             "namespace": "test_namespace_shard",
             "rw_flag": 2,
             "rw_split": 0,
