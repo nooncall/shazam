@@ -83,7 +83,7 @@ Gaea是小米中国区电商研发部研发的基于mysql协议的数据库中�
 ## 社区
 
 ### gitter
-[![Gitter](https://badges.gitter.im/xiaomi-b2c/Gaea.svg)](https://gitter.im/xiaomi-b2c/Gaea?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Gitter](https://badges.gitter.im/nooncall/shazam.svg)](https://gitter.im/nooncall/shazam)
 
 ### 微信群
 ![微信](docs/assets/gaea_weixin.png)
