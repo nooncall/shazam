@@ -86,4 +86,4 @@ Gaea是小米中国区电商研发部研发的基于mysql协议的数据库中�
 [![Gitter](https://badges.gitter.im/nooncall/shazam.svg)](https://gitter.im/nooncall/shazam)
 
 ### 微信群
-![微信](docs/assets/gaea_weixin.png)
+![微信](docs/assets/shazam_wechat.jpeg)
