@@ -52,7 +52,8 @@ func (s *SubqueryColumnNameRewriteVisitor) Leave(n ast.Node) (node ast.Node, ok 
 		return n, true
 	}
 
-	decorator := CreateColumnNameExprDecorator(field, rule, s.info.GetRouteResult())
+	// TODO: add table alias check
+	decorator := CreateColumnNameExprDecorator(field, rule, false, s.info.GetRouteResult())
 	return decorator, true
 }
 
