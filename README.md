@@ -62,24 +62,6 @@ Gaea是小米中国区电商研发部研发的基于mysql协议的数据库中�
 - [ ] 支持平滑的扩容、缩容
 - [ ] 后端连接池优化 (按照请求时间排队)
 
-## 自有开发模块
-
-- backend  
-- cmd  
-- log  
-- models  
-- proxy/plan  
-- proxy/router(kingshard路由方式源自kingshard项目本身)  
-- proxy/sequence
-- server  
-
-## 外部模块
-
-- mysql(google vitess、tidb、kingshard都有引入)  
-- parser(tidb)  
-- stats(google vitess，打点统计)  
-- util(混合)
-
 ## 社区
 
 ### gitter
