@@ -20,7 +20,6 @@ WORKDIR /go/src/github.com/nooncall/shazam
 COPY go.mod .
 COPY go.sum .
 
-ENV GOPROXY https://goproxy.io
 RUN GO111MODULE=on go mod download
 
 # Build real binaries
