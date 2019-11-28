@@ -24,7 +24,7 @@ RUN GO111MODULE=on go mod download
 
 # Build real binaries
 COPY . .
-RUN make shazam-proxy
+RUN CGO_ENABLED=0 make shazam-proxy
 
 # Executable image
 FROM alpine
