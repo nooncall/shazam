@@ -47,15 +47,12 @@ func Test_isErrNodeExists(t *testing.T) {
 
 //Test origin function http client
 func Test_ClientGuest(t *testing.T) {
+	//create a etcd, enable api v2
 	c, err := New("127.0.0.1:4379", time.Minute, "", "", "")
 	if err != nil {
 		t.Fatalf("test New client err: %s", err)
 	}
-	paths, err := c.List("/")
-	if err != nil {
-		t.Fatalf("test list err: %s", err)
-	}
-	t.Logf("paths: %v", paths)
+	defer c.Close()
 }
 
 //Test https Tls with get tls config from env
@@ -63,14 +60,10 @@ func Test_ClientTls(t *testing.T) {
 	//os.Setenv("SHAZAM_CERT_FILE", "client.pem")
 	//os.Setenv("SHAZAM_KEY_FILE", "client-key.pem")
 	//os.Setenv("SHAZAM_CA_FILE", "ca.pem")
-	//
+	//create a etcd,  enable api v2 and client tls with clinet-url port 2379
 	c, err := New("https://127.0.0.1:2379", time.Minute, "", "", "")
 	if err != nil {
 		t.Fatalf("test New client err: %s", err)
 	}
-	paths, err := c.List("/")
-	if err != nil {
-		t.Fatalf("test list err: %s", err)
-	}
-	t.Logf("paths: %v", paths)
+	defer c.Close()
 }
