@@ -20,17 +20,22 @@ package etcdclient
 import (
 	"context"
 	"errors"
+	"net/http"
+	"os"
 	"strings"
 	"sync"
 	"time"
 
 	"github.com/coreos/etcd/client"
+	"github.com/coreos/etcd/pkg/transport"
 
 	"github.com/nooncall/shazam/log"
 )
 
 // ErrClosedEtcdClient means etcd client closed
 var ErrClosedEtcdClient = errors.New("use of closed etcd client")
+
+var defaultDialTimeout = 30 * time.Second
 
 const (
 	defaultEtcdPrefix = "/shazam"
@@ -46,17 +51,41 @@ type EtcdClient struct {
 	Prefix  string
 }
 
+//modified from etcdctl/cltv2/command/util
+//get transport with tls config from env
+func getTransport() (*http.Transport, error) {
+	// Use an environment variable to Get CA, CERT, KEY file path
+	cafile := os.Getenv("SHAZAM_CA_FILE")
+	certfile := os.Getenv("SHAZAM_CERT_FILE")
+	keyfile := os.Getenv("SHAZAM_KEY_FILE")
+
+	tls := transport.TLSInfo{
+		CAFile:   cafile,
+		CertFile: certfile,
+		KeyFile:  keyfile,
+	}
+
+	return transport.NewTransport(tls, defaultDialTimeout)
+}
+
 // New constructor of EtcdClient
 func New(addr string, timeout time.Duration, username, passwd, root string) (*EtcdClient, error) {
 	endpoints := strings.Split(addr, ",")
 	for i, s := range endpoints {
+		if strings.HasPrefix(s, "https://") {
+			continue
+		}
 		if s != "" && !strings.HasPrefix(s, "http://") {
 			endpoints[i] = "http://" + s
 		}
 	}
+	tsp, err := getTransport()
+	if err != nil {
+		return nil, err
+	}
 	config := client.Config{
 		Endpoints:               endpoints,
-		Transport:               client.DefaultTransport,
+		Transport:               tsp,
 		Username:                username,
 		Password:                passwd,
 		HeaderTimeoutPerRequest: time.Second * 10,
