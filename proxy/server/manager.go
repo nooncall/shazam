@@ -161,6 +161,7 @@ func CreateManager(cfg *models.Proxy, namespaceConfigs map[string]*models.Namesp
 	}
 	m.users[current] = user
 
+	m.startConnectPoolMetricsTask(cfg.StatsInterval)
 	return m, nil
 }
 
@@ -353,6 +354,48 @@ func (m *Manager) RecordBackendSQLMetrics(reqCtx *util.RequestContext, namespace
 		md5 := mysql.GetMd5(fingerprint)
 		ns.SetBackendErrorSQLFingerprint(md5, fingerprint)
 		m.statistics.recordBackendErrorSQLFingerprint(namespace, operation, md5)
+	}
+}
+
+func (m *Manager) startConnectPoolMetricsTask(interval int) {
+	if interval <= 0 {
+		interval = 10
+	}
+
+	go func() {
+		t := time.NewTicker(time.Duration(interval) * time.Second)
+		for {
+			select {
+			case <-m.GetStatisticManager().closeChan:
+				return
+			case <-t.C:
+				current, _, _ := m.switchIndex.Get()
+				for nameSpaceName, _ := range m.namespaces[current].namespaces {
+					m.recordBackendConnectPoolMetrics(nameSpaceName)
+				}
+			}
+		}
+	}()
+}
+
+func (m *Manager) recordBackendConnectPoolMetrics(namespace string) {
+	ns := m.GetNamespace(namespace)
+	if ns == nil {
+		log.Warn("record backend connect pool metrics err, namespace: %s", namespace)
+		return
+	}
+
+	for sliceName, slice := range ns.slices {
+		m.statistics.recordConnectPoolInuseCount(namespace, sliceName, slice.Master.Addr(), slice.Master.InUse())
+		m.statistics.recordConnectPoolIdleCount(namespace, sliceName, slice.Master.Addr(), slice.Master.Available())
+		for _, slave := range slice.Slave {
+			m.statistics.recordConnectPoolInuseCount(namespace, sliceName, slave.Addr(), slave.InUse())
+			m.statistics.recordConnectPoolIdleCount(namespace, sliceName, slave.Addr(), slave.Available())
+		}
+		for _, statisticSlave := range slice.StatisticSlave {
+			m.statistics.recordConnectPoolInuseCount(namespace, sliceName, statisticSlave.Addr(), statisticSlave.InUse())
+			m.statistics.recordConnectPoolIdleCount(namespace, sliceName, statisticSlave.Addr(), statisticSlave.Available())
+		}
 	}
 }
 
@@ -574,6 +617,8 @@ const (
 	statsLabelNamespace     = "Namespace"
 	statsLabelFingerprint   = "Fingerprint"
 	statsLabelFlowDirection = "Flowdirection"
+	statsLabelSlice         = "Slice"
+	statsLabelIPAddr        = "IPAddr"
 )
 
 // StatisticManager statistics manager
@@ -595,6 +640,8 @@ type StatisticManager struct {
 	backendSQLFingerprintSlowCounts  *stats.CountersWithMultiLabels // 后端慢SQL指纹数量统计
 	backendSQLErrorCounts            *stats.CountersWithMultiLabels // 后端SQL错误数统计
 	backendSQLFingerprintErrorCounts *stats.CountersWithMultiLabels // 后端SQL指纹错误数统计
+	backendConnectPoolIdleCounts     *stats.GaugesWithMultiLabels   //后端空闲连接数统计
+	backendConnectPoolInUseCounts    *stats.GaugesWithMultiLabels   //后端正在使用连接数统计
 
 	slowSQLTime int64
 
@@ -613,6 +660,7 @@ func CreateStatisticManager(cfg *models.Proxy, manager *Manager) (*StatisticMana
 	if err := mgr.Init(cfg); err != nil {
 		return nil, err
 	}
+
 	return mgr, nil
 }
 
@@ -661,6 +709,8 @@ func (s *StatisticManager) Init(cfg *models.Proxy) error {
 	s.backendSQLFingerprintSlowCounts = stats.NewCountersWithMultiLabels("BackendSqlFingerprintSlowCounts", "backend sql fingerprint slow counts", []string{statsLabelFingerprint, statsLabelNamespace})
 	s.backendSQLErrorCounts = stats.NewCountersWithMultiLabels("BackendSqlErrorCounts", "backend sql error counts per error type", []string{statsLabelOperation, statsLabelNamespace})
 	s.backendSQLFingerprintErrorCounts = stats.NewCountersWithMultiLabels("BackendSqlFingerprintErrorCounts", "backend sql fingerprint error counts", []string{statsLabelFingerprint, statsLabelNamespace})
+	s.backendConnectPoolIdleCounts = stats.NewGaugesWithMultiLabels("backendConnectPoolIdleCounts", "backend idle connect counts", []string{statsLabelNamespace, statsLabelSlice, statsLabelIPAddr})
+	s.backendConnectPoolInUseCounts = stats.NewGaugesWithMultiLabels("backendConnectPoolInUseCounts", "backend in-use connect counts", []string{statsLabelNamespace, statsLabelSlice, statsLabelIPAddr})
 
 	s.startClearTask()
 	return nil
@@ -775,4 +825,16 @@ func (s *StatisticManager) AddReadFlowCount(namespace string, byteCount int) {
 func (s *StatisticManager) AddWriteFlowCount(namespace string, byteCount int) {
 	statsKey := []string{namespace, "write"}
 	s.flowCounts.Add(statsKey, int64(byteCount))
+}
+
+// IncrConnectCount add connect count
+func (s *StatisticManager) recordConnectPoolIdleCount(namespace string, slice string, addr string, count int64) {
+	statsKey := []string{namespace, slice, addr}
+	s.backendConnectPoolIdleCounts.Set(statsKey, count)
+}
+
+// IncrConnectCount add connect count
+func (s *StatisticManager) recordConnectPoolInuseCount(namespace string, slice string, addr string, count int64) {
+	statsKey := []string{namespace, slice, addr}
+	s.backendConnectPoolInUseCounts.Set(statsKey, count)
 }
