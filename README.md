@@ -6,11 +6,9 @@
 
 **shazam ([ʃə'zæm], 沙赞)是一款兼容MySQL协议的数据库中间件, 其前身是[Gaea](https://github.com/XiaoMi/Gaea).**
 
-Gaea是小米中国区电商研发部研发的基于mysql协议的数据库中间件，目前在小米商城大陆和海外得到广泛使用，包括订单、社区、活动等多个业务。Gaea支持分库分表、sql路由、读写分离等基本特性，更多详细功能可以参照下面的功能列表。其中分库分表方案兼容了mycat和kingshard两个项目的路由方式。Gaea在设计、实现阶段参照了mycat、kingshard和vitess，并使用tidb parser作为内置的sql parser。
-
 ## 功能列表
 
-#### 基础功能
+### 基础功能
 
 - 多租户
 - SQL透明转发
@@ -25,16 +23,12 @@ Gaea是小米中国区电商研发部研发的基于mysql协议的数据库中�
 - IP/IP段白名单
 - 全局序列号
 
-#### 分库、分表功能
+### 分库、分表功能
 
 - 分库: 支持mycat分库方式
 - 分表: 支持kingshard分表方式
 - 聚合函数: 支持max、min、sum、count、group by、order by等
 - join: 支持分片表和全局表的join、支持多个分片表但是路由规则相同的join
-
-## 架构图
-
-![shazam架构图](docs/assets/architecture.png)
 
 ## 安装使用
 
@@ -51,16 +45,6 @@ Gaea是小米中国区电商研发部研发的基于mysql协议的数据库中�
 - [配置热加载设计与实现](docs/config-reloading.md)
 - [后端连接池的设计与实现](docs/connection-pool.md)
 - [prepare的设计与实现](docs/prepare.md)
-
-## Roadmap
-
-- [x] 支持配置加密存储，开关
-- [ ] 支持执行计划缓存
-- [ ] 支持事务追踪
-- [ ] 支持二级索引
-- [ ] 支持分布式事务
-- [ ] 支持平滑的扩容、缩容
-- [ ] 后端连接池优化 (按照请求时间排队)
 
 ## 社区
 
