@@ -16,12 +16,10 @@ package plan
 
 import (
 	"fmt"
-	"strings"
 
 	"github.com/nooncall/shazam/backend"
 	"github.com/nooncall/shazam/mysql"
 	"github.com/nooncall/shazam/parser/ast"
-	"github.com/nooncall/shazam/parser/format"
 	"github.com/nooncall/shazam/proxy/router"
 	"github.com/nooncall/shazam/proxy/sequence"
 	"github.com/nooncall/shazam/util"
@@ -39,13 +37,13 @@ type ExplainPlan struct {
 	sqls      map[string]map[string][]string
 }
 
-func buildExplainPlan(stmt *ast.ExplainStmt, db, sql string, r *router.Router, seq *sequence.SequenceManager) (*ExplainPlan, error) {
+func buildExplainPlan(stmt *ast.ExplainStmt, phyDBs map[string]string, db, sql string, r *router.Router, seq *sequence.SequenceManager) (*ExplainPlan, error) {
 	stmtToExplain := stmt.Stmt
 	if _, ok := stmtToExplain.(*ast.ExplainStmt); ok {
 		return nil, fmt.Errorf("nested explain")
 	}
 
-	p, err := BuildPlan(stmtToExplain, db, sql, r, seq)
+	p, err := BuildPlan(stmtToExplain, phyDBs, db, sql, r, seq)
 	if err != nil {
 		return nil, fmt.Errorf("build plan to explain error: %v", err)
 	}
@@ -71,13 +69,9 @@ func buildExplainPlan(stmt *ast.ExplainStmt, db, sql string, r *router.Router, s
 		return ep, nil
 	case *UnshardPlan:
 		ep.shardType = ShardTypeUnshard
-		// 非分片SQL要用Restore从ast还原, 因为原SQL含有EXPLAIN
 		ep.sqls = make(map[string]map[string][]string)
 		dbSQLs := make(map[string][]string)
-		s := &strings.Builder{}
-		ctx := format.NewRestoreCtx(format.EscapeRestoreFlags, s)
-		_ = pl.stmt.Restore(ctx)
-		dbSQLs[pl.db] = []string{s.String()}
+		dbSQLs[pl.db] = []string{pl.sql}
 		ep.sqls[backend.DefaultSlice] = dbSQLs
 		return ep, nil
 	default:
