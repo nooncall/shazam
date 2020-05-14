@@ -46,8 +46,9 @@
 
 ## 社区
 
+### 钉钉
+![Dingtalk](docs/assets/shazam_dingtalk.png)
+
 ### gitter
 [![Gitter](https://badges.gitter.im/nooncall/shazam.svg)](https://gitter.im/nooncall/shazam)
 
-### 微信群
-![微信](docs/assets/shazam_wechat.jpeg)
