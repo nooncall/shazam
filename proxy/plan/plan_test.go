@@ -18,6 +18,7 @@ import (
 	"encoding/json"
 	"sync/atomic"
 	"testing"
+	"time"
 
 	"github.com/nooncall/shazam/backend"
 	"github.com/nooncall/shazam/models"
@@ -165,6 +166,9 @@ func checkSQLs(expect, actual map[string]map[string][]string) bool {
 }
 
 func preparePlanInfo() (*PlanInfo, error) {
+	// set time zone for testing date shard
+	time.Local = time.FixedZone("CST", 28800)
+
 	nsStr := `
 {
     "name": "shazam_namespace_1",
