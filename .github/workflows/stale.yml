@@ -19,3 +19,4 @@ jobs:
         stale-pr-label: 'stale'
         days-before-stale: 30
         days-before-close: 7
+        exempt-issue-labels: 'good first issue,help wanted'
