@@ -125,6 +125,9 @@ func (tw *TimeWheel) add(task *Task) {
 	round := tw.calculateRound(task.delay)
 	index := tw.calculateIndex(task.delay)
 	task.round = round
+	if originIndex, ok := tw.bucketIndexes[task.key]; ok {
+		delete(tw.buckets[originIndex], task.key)
+	}
 	tw.bucketIndexes[task.key] = index
 	tw.buckets[index][task.key] = task
 }
