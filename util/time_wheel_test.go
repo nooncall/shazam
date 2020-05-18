@@ -46,6 +46,25 @@ func newTimeWheel() *TimeWheel {
 	return tw
 }
 
+func TestNewTimeWheel(t *testing.T) {
+	tests := []struct {
+		name      string
+		tick      time.Duration
+		bucketNum int
+		hasErr    bool
+	}{
+		{tick: time.Second, bucketNum: 0, hasErr: true},
+		{tick: time.Millisecond, bucketNum: 1, hasErr: true},
+		{tick: time.Second, bucketNum: 1, hasErr: false},
+	}
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			_, err := NewTimeWheel(test.tick, test.bucketNum)
+			assert.Equal(t, test.hasErr, err != nil)
+		})
+	}
+}
+
 func TestAdd(t *testing.T) {
 	tw := newTimeWheel()
 	a := &A{}
