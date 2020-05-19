@@ -1,7 +1,7 @@
 [![LICENSE](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://github.com/nooncall/shazam/blob/master/LICENSE)
 [![Build Status](https://github.com/nooncall/shazam/workflows/build/badge.svg)](https://github.com/nooncall/shazam/actions?query=workflow%3Abuild)
 [![Go Report Card](https://goreportcard.com/badge/github.com/nooncall/shazam)](https://goreportcard.com/report/github.com/nooncall/shazam)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=nooncall_shazam&metric=coverage)](https://sonarcloud.io/dashboard?id=nooncall_shazam)
+[![codecov](https://codecov.io/gh/nooncall/shazam/branch/master/graph/badge.svg)](https://codecov.io/gh/nooncall/shazam)
 
 ## 简介
 
