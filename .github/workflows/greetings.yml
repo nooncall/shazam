@@ -1,6 +1,6 @@
 name: Greetings
 
-on: [pull_request, issues]
+on: [issues]
 
 jobs:
   greeting:
@@ -10,4 +10,3 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         issue-message: 'Awesome! Thanks for taking the time to open an issue. We will have a look and answer as soon as we can.'
-        pr-message: 'Thank you for opening an PR. We will review the PR and provide feedback as soon as we can.'
